@@ -23,7 +23,7 @@ export async function GET() {
         })
     })
     let result = await res.text()
-    return json(result)
+    return json({session: session_v, csrf_name: csrf_name_v, csrf_token: csrf_token_v})
 }
 
 export async function POST() {
