@@ -28,6 +28,6 @@
         <input type="password" bind:value={pass} />
     </li>
     <li>
-        <button on:click={login}>登录</button>
+        <button on:click={login}>Login</button>
     </li>
 </ul>
