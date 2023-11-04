@@ -1,6 +1,5 @@
 <script>
     export let data;
-    export let form;
 </script>
 
 <h1>Logged: {data.logged}</h1>
@@ -20,7 +19,3 @@
         </li>
     </ul>
 </form>
-
-<div>
-    {form}
-</div>

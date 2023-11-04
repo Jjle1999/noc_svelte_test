@@ -38,6 +38,7 @@ export const actions = {
                 'Referer': 'https://inoc.libyana.ly/oss/',
             },
         });
-        return { url: url_login, res: res }
+        cookies.set('url', url_login);
+        cookies.set('code', res.status_code);
     }
 };
