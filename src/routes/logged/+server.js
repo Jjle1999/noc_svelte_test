@@ -6,6 +6,7 @@ export async function POST() {
         method: 'GET',
         credentials: 'include',
         headers: {
+            'Origin': 'https://inoc.libyana.ly',
             'Referer': 'https://inoc.libyana.ly/oss/',
         },
     });
