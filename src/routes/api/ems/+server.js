@@ -20,7 +20,7 @@ export async function GET() {
             sortOrder: "asc",
         })
     })
-    let result = await res.json()
+    let result = await res.text()
     return json(result)
 }
 
