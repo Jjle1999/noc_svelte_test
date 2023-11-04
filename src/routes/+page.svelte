@@ -1,6 +1,5 @@
 <script>
-    let log_success = false;
-    let log_logged = false;
+    let log_success;
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
@@ -15,9 +14,9 @@
             body: JSON.stringify({ user: user, pass: pass64 }),
         })
             .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                return "isSuccess" in data;
+            .then((result) => {
+                console.log(result);
+                return result.session;
             });
     }
 
@@ -25,6 +24,10 @@
         let url = "/logged";
         fetch(url, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ session: session }),
         })
             .then((res) => res.json())
             .then((data) => {

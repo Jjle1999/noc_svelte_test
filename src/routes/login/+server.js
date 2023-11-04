@@ -11,10 +11,16 @@ export async function POST({ cookies, request }) {
         // },
 
     });
+    let session;
     res.headers.getSetCookie().forEach(cookie => {
         cookie = cookie.split(';')[0];
         cookie = cookie.split('=');
-        cookies.set(cookie[0].trim(), cookie[1].trim(), { Domain: '.inoc.libyana.ly' })
+        if (cookie[0].trim().toUpperCase().startsWith('SESSION')) {
+            session = cookie[1].trim()
+        }
     });
-    return json(await res.json());
+    return json({
+        session: session,
+        data: await res.json()
+    });
 }
