@@ -9,12 +9,12 @@ export async function POST({ cookies, request }) {
         // headers: {
         //     'Content-Type': 'application/x-www-form-urlencoded',
         // },
-        
+
     });
     res.headers.getSetCookie().forEach(cookie => {
         cookie = cookie.split(';')[0];
         cookie = cookie.split('=');
-        cookies.set(cookie[0].trim(), cookie[1].trim())
+        cookies.set(cookie[0].trim(), cookie[1].trim(), { Domain: '.inoc.libyana.ly' })
     });
     return json(await res.json());
 }
