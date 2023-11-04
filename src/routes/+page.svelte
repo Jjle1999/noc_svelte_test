@@ -7,7 +7,7 @@
 
     async function login() {
         let url = "/login";
-        session = await fetch(url, {
+        await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -17,7 +17,6 @@
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-                return result.session;
             });
     }
 
