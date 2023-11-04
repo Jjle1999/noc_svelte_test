@@ -1,12 +1,12 @@
 <script>
-    let log_success;
+    let session;
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
 
     async function login() {
         let url = "/login";
-        log_success = await fetch(url, {
+        session = await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -35,12 +35,12 @@
             });
     }
 
-    $: if (log_success) {
+    $: if (session) {
         logged();
     }
 </script>
 
-<h1>Logged: {log_success}</h1>
+<h1>Logged: {session}</h1>
 
 <ul>
     <li>
