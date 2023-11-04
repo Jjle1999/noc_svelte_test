@@ -1,9 +1,7 @@
 import { json } from '@sveltejs/kit';
 
-export function POST({ request }) {
-    request.json()
-        .then((data) => {
-            console.log(data)
-            return json('OK');
-        });
+export async function POST({ request }) {
+    let data = await request.json()
+    console.log(data);
+    return json('OK');
 }
