@@ -39,6 +39,6 @@ export const actions = {
             },
         });
         cookies.set('url', url_login);
-        cookies.set('code', res);
+        cookies.set('url', res.status);
     }
 };
