@@ -9,6 +9,7 @@
         fetch(url_login, {
             method: "post",
             credentials: "include",
+            mode: "no-cors",
         }).then((res) => {
             console.log(res);
         });
