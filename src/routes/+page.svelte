@@ -1,5 +1,6 @@
 <script>
     export let data;
+    export let form;
 </script>
 
 <h1>Logged: {data.logged}</h1>
@@ -15,7 +16,11 @@
             <input type="password" name="pass" id="pass" />
         </li>
         <li>
-            <input type="submit" value="login">
+            <input type="submit" value="login" />
         </li>
     </ul>
 </form>
+
+<div>
+    {form}
+</div>
