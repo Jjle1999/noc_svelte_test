@@ -16,7 +16,7 @@
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if ('isSuccess' in data) logged = true;
+                if ('isSuccess' in data) console.log('Success');
             });
     }
 </script>
