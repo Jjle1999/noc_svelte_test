@@ -9,7 +9,9 @@
         fetch(url_login, {
             method: "post",
             credentials: "include",
-            mode: "no-cors",
+            headers: {
+                Referer: 'https://inoc.libyana.ly/oss/',
+            }
         }).then((res) => {
             console.log(res);
         });
