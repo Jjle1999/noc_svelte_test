@@ -34,10 +34,6 @@
                 console.log(result);
             });
     }
-
-    $: if ($session) {
-        logged();
-    }
 </script>
 
 <h1>Session: {$session}</h1>
@@ -54,5 +50,8 @@
     </li>
     <li>
         <button on:click={login}>Login</button>
+    </li>
+    <li>
+        <button on:click={logged}>Logged</button>
     </li>
 </ul>
