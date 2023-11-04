@@ -3,7 +3,6 @@
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
-    $: session = data.session;
 
     async function login() {
         let url = "/login";
@@ -27,6 +26,7 @@
         });
     }
 
+    $: session = data.session;
     $: if (session) {
         logged();
     }
