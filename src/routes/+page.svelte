@@ -1,10 +1,15 @@
 <script>
+    import { browser } from "$app/environment";
     export let data;
+    let session;
+    let csrf;
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
-    $: session = data.session;
-    $: csrf = data.csrf;
+    if (browser) {
+        session = data.session;
+        csrf = data.csrf;
+    }
 
     async function login() {
         let url = "/login";
