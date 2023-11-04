@@ -41,8 +41,9 @@
     }
 </script>
 
-{#if session}
-    <ul>
+<h1>Session: {session}</h1>
+
+<ul>
     <li>
         <label for="user">user</label>
         <input type="text" bind:value={user} />
@@ -55,5 +56,3 @@
         <button on:click={login}>Login</button>
     </li>
 </ul>
-{/if}
-
