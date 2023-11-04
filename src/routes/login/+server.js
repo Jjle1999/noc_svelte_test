@@ -9,11 +9,14 @@ export async function POST({ request }) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-    })
+    });
+    let cookies = [];
+    res.headers.getSetCookie().forEach(cookie => {
+        cookie = cookie.split(';')[0];
+        cookies.push(cookie);
+    });
     return json({
-        url: url,
         data: await res.json(),
-        headers: res.headers,
-        cookies: res.headers.getSetCookie(),
+        cookies: cookies,
     });
 }
