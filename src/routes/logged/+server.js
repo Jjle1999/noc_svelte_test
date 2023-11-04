@@ -8,7 +8,7 @@ export async function POST() {
         // referrer: 'https://inoc.libyana.ly/oss/',
         referrerPolicy: 'no-referrer',
         cache: 'no-cache',
-        mode: 'cors',
+        mode: 'no-cors',
     });
     return json(await res.json());
 }
