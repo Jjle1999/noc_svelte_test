@@ -12,7 +12,7 @@
     $: pass64 = btoa(pass);
 
     async function login() {
-        let url = "/login";
+        let url = "/api/login";
         await fetch(url, {
             method: "POST",
             headers: {
@@ -27,7 +27,7 @@
     }
 
     async function logged() {
-        let url = "/logged";
+        let url = "/api/logged";
         fetch(url, {
             method: "POST",
             headers: {
