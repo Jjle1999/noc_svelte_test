@@ -5,17 +5,14 @@
     $: pass64 = btoa(pass);
 
     function login() {
-        let url_login = `https://inoc.libyana.ly/oss/login?username=${user}&password=${pass64}`;
+        let url_login = `/login`;
         fetch(url_login, {
-            method: "post",
-            credentials: "include",
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Referer': "https://inoc.libyana.ly/oss/",
-            },
-        }).then((res) => {
-            console.log(res);
-        });
+            method: "POST",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
     }
 </script>
 
