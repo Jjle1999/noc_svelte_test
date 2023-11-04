@@ -1,12 +1,12 @@
 <script>
-    let logged = false;
+    let log_success = false;
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
 
-    function login() {
+    async function login() {
         let url_login = `/login`;
-        fetch(url_login, {
+        log_success = await fetch(url_login, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -16,12 +16,12 @@
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                if ('isSuccess' in data) console.log('Success');
+                return "isSuccess" in data;
             });
     }
 </script>
 
-<h1>Logged: {logged}</h1>
+<h1>Logged: {log_success}</h1>
 
 <ul>
     <li>
