@@ -10,7 +10,8 @@
             method: "post",
             credentials: "include",
             headers: {
-                Referer: "https://inoc.libyana.ly/oss/",
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Referer': "https://inoc.libyana.ly/oss/",
             },
         }).then((res) => {
             console.log(res);
