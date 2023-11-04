@@ -1,15 +1,9 @@
 <script>
-    import { browser } from "$app/environment";
-    export let data;
-    let session;
-    let csrf;
+    import { session, csrf_name, csrf_token } from "$lib/store";
+
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
-    if (browser) {
-        session = data.session;
-        csrf = data.csrf;
-    }
 
     async function login() {
         let url = "/login";
@@ -42,13 +36,13 @@
             });
     }
 
-    $: if (session) {
+    $: if ($session) {
         logged();
     }
 </script>
 
-<h1>Session: {session}</h1>
-<h2>CSRF({csrf.name}): {csrf.token}</h2>
+<h1>Session: {$session}</h1>
+<h2>CSRF({$csrf_name}): {$csrf_token}</h2>
 
 <ul>
     <li>
