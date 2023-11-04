@@ -28,7 +28,7 @@
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ session: session }),
+            body: JSON.stringify({ session: $session }),
         })
             .then((res) => res.json())
             .then((result) => {
