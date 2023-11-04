@@ -27,7 +27,7 @@ export async function GET() {
         session: session_v,
         csrf_name: csrf_name_v,
         csrf_token: csrf_token_v,
-        result: result
+        result: res
     })
 }
 
