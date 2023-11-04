@@ -10,8 +10,8 @@
             method: "post",
             credentials: "include",
             headers: {
-                Referer: 'https://inoc.libyana.ly/oss/',
-            }
+                Referer: "https://inoc.libyana.ly/oss/",
+            },
         }).then((res) => {
             console.log(res);
         });
