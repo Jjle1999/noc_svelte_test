@@ -33,6 +33,7 @@
     }
 
     $: if (log_success) {
+        logged();
     }
 </script>
 
