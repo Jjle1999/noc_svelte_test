@@ -4,6 +4,6 @@ export function POST({ request }) {
     request.json()
         .then((data) => {
             console.log(data)
-            return json({user: data.user});
+            return json('OK');
         });
 }
