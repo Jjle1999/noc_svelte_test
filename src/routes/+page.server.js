@@ -2,6 +2,9 @@
 export async function load({ cookies }) {
     return {
         session: cookies.get('session'),
-        csrf: cookies.get('csrf'),
+        csrf: {
+            name: cookies.get('csrf_name'),
+            token: cookies.get('csrf_token'),
+        },
     };
 }

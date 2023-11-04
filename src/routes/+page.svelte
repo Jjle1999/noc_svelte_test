@@ -4,6 +4,7 @@
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
     $: session = data.session;
+    $: csrf = data.csrf;
 
     async function login() {
         let url = "/login";
@@ -42,6 +43,7 @@
 </script>
 
 <h1>Session: {session}</h1>
+<h2>CSRF({csrf.name}): {csrf.token}</h2>
 
 <ul>
     <li>
