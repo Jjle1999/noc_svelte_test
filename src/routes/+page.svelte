@@ -1,5 +1,11 @@
 <script>
     import { session, csrf_name, csrf_token } from "$lib/store";
+    let session_v;
+    session.subscribe((value) => (session_v = value));
+    let csrf_name_v;
+    csrf_name.subscribe((value) => (csrf_name_v = value));
+    let csrf_token_v;
+    csrf_token.subscribe((value) => (csrf_token_v = value));
 
     let user = "admin";
     let pass = "Fuwa2022";
@@ -27,7 +33,7 @@
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ session: $session }),
+            body: JSON.stringify({ session: session_v }),
         })
             .then((res) => res.json())
             .then((result) => {
@@ -36,8 +42,8 @@
     }
 </script>
 
-<h1>Session: {$session}</h1>
-<h2>CSRF({$csrf_name}): {$csrf_token}</h2>
+<h1>Session: {session_v}</h1>
+<h2>CSRF({csrf_name_v}): {csrf_token_v}</h2>
 
 <ul>
     <li>
