@@ -8,6 +8,10 @@
         let url_login = `/login`;
         fetch(url_login, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            json: JSON.stringify({ user: user, pass: pass64 }),
         })
             .then((res) => res.json())
             .then((data) => {
