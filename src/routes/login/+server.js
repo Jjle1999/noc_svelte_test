@@ -5,9 +5,15 @@ export async function POST({ request }) {
     let url = `https://inoc.libyana.ly/oss/login?username=${user}&password=${pass}`
     let res = await fetch(url, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-    return json({ url: url, data: await res.json() });
+    return json({
+        url: url,
+        data: await res.json(),
+        headers: res.headers,
+        cookies: res.headers.getSetCookie(),
+    });
 }
