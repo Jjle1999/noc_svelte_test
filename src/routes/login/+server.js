@@ -6,9 +6,6 @@ export async function POST({ cookies, request }) {
     let res = await fetch(url_login, {
         method: 'POST',
         credentials: 'include',
-        // headers: {
-        //     'Content-Type': 'application/x-www-form-urlencoded',
-        // },
 
     });
     let session;
@@ -16,7 +13,8 @@ export async function POST({ cookies, request }) {
         cookie = cookie.split(';')[0];
         cookie = cookie.split('=');
         if (cookie[0].trim().toUpperCase().startsWith('SESSION')) {
-            session = cookie[1].trim()
+            session = cookie[1].trim();
+            cookies.set('session', session);
         }
     });
     return json({
