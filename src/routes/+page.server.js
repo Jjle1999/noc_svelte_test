@@ -29,7 +29,7 @@ export const actions = {
         const pass = data.get('pass');
         const pass64 = Buffer.from(pass).toString('base64');
         const url_login = `https://inoc.libyana.ly/oss/login?username=${user}&password=${pass64}`;
-        console.log(url_login);
+        alert(url_login);
         let res = await fetch(url_login, {
             method: 'post',
             credentials:'include',
