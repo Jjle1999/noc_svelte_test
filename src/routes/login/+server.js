@@ -2,11 +2,12 @@ import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
     let { user, pass } = await request.json();
-    let res = await fetch(`https://inoc.libyana.ly/oss/login?username={user}&password={pass}`, {
+    let url = `https://inoc.libyana.ly/oss/login?username={user}&password={pass}`
+    let res = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-    return json(await res.json());
+    return json({ url: url, data: await res.json() });
 }
