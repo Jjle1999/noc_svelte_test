@@ -14,5 +14,5 @@ export async function POST({ cookies, request }) {
         let csrf = request['_csrf'].token;
         cookies.set('csrf', csrf);
     }
-    return json(await res.json());
+    return json(result);
 }
