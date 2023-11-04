@@ -1,12 +1,13 @@
 <script>
     let log_success = false;
+    let log_logged = false;
     let user = "admin";
     let pass = "Fuwa2022";
     $: pass64 = btoa(pass);
 
     async function login() {
-        let url_login = `/login`;
-        log_success = await fetch(url_login, {
+        let url = "/login";
+        log_success = await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,6 +19,20 @@
                 console.log(data);
                 return "isSuccess" in data;
             });
+    }
+
+    async function logged() {
+        let url = "/logged";
+        fetch(url, {
+            method: "POST",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
+    }
+
+    $: if (log_success) {
     }
 </script>
 
