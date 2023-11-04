@@ -5,10 +5,7 @@ export async function POST() {
     let res = await fetch(url_logged, {
         method: 'GET',
         credentials: 'include',
-        headers: {
-            'Origin': 'https://inoc.libyana.ly',
-            'Referer': 'https://inoc.libyana.ly/oss/',
-        },
+        referrer: 'https://inoc.libyana.ly/oss/',
     });
     return json(await res.json());
 }
