@@ -6,7 +6,12 @@
 
     function login() {
         let url_login = `https://inoc.libyana.ly/oss/login?username=${user}&password=${pass64}`;
-        alert(url_login);
+        fetch(url_login, {
+            method: "post",
+            credentials: "include",
+        }).then((res) => {
+            console.log(res);
+        });
     }
 </script>
 
