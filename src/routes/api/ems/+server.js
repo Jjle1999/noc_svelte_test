@@ -2,11 +2,11 @@ import { json } from '@sveltejs/kit'
 
 import { session, csrf_name, csrf_token } from '$lib/store.js'
 let session_v;
-session.subscribe((value) => (session_v = value));
+session.subscribe(value => session_v = value);
 let csrf_name_v;
-csrf_name.subscribe((value) => (csrf_name_v = value));
+csrf_name.subscribe(value => csrf_name_v = value);
 let csrf_token_v;
-csrf_token.subscribe((value) => (csrf_token_v = value));
+csrf_token.subscribe(value => csrf_token_v = value);
 
 export async function GET() {
     let url_logged = 'https://inoc.libyana.ly/oss/ucp/CollectAlarmSyncController/getEmsState'
@@ -23,7 +23,7 @@ export async function GET() {
         })
     })
     let result = await res.text()
-    return json({session: session_v, csrf_name: csrf_name_v, csrf_token: csrf_token_v})
+    return json({ session: session_v, csrf_name: csrf_name_v, csrf_token: csrf_token_v })
 }
 
 export async function POST() {
