@@ -6,6 +6,7 @@ export async function POST() {
         method: 'GET',
         credentials: 'include',
         referrer: 'https://inoc.libyana.ly/oss/',
+        referrerPolicy: 'no-referrer',
     });
     return json(await res.json());
 }
